@@ -1,0 +1,9 @@
+{
+  "name": "soop-comment-notification-filter",
+  "version": "1.0.4",
+  "private": true,
+  "description": "SOOP 댓글 알림 필터 Chrome 확장 프로그램",
+  "scripts": {
+    "test": "node --test"
+  }
+}

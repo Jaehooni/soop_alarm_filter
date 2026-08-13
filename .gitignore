@@ -1,0 +1,13 @@
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Local editor files
+.idea/
+.vscode/
+*.swp
+
+# Test and package caches
+node_modules/
+coverage/
+*.log

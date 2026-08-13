@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "SOOP 댓글 알림 필터",
+  "version": "1.0.4",
+  "description": "SOOP 알림창에서 댓글과 답글 알림을 중심으로 볼 수 있게 필터링합니다.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.sooplive.com/*",
+        "https://*.sooplive.com/*"
+      ],
+      "js": [
+        "src/classifier.js",
+        "src/content.js"
+      ],
+      "css": ["src/content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
