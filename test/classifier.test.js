@@ -18,10 +18,24 @@ test("comment wording takes precedence over other keywords", () => {
   assert.equal(classifyNotification("VOD에 댓글을 남겼습니다"), "comment");
 });
 
+test("explicit new-post and UP types take precedence over post titles", () => {
+  const messages = [
+    "공태연님의 신규 게시글 : (필독) 댓글 필수!!",
+    "민트돼지님의 신규 게시글: 답글 관련 안내",
+    "물소보살님이 게시글을 UP 했어요 : 댓글 환영합니다",
+    "민트돼지님께서 게시글 UP했어요 : 새 글"
+  ];
+
+  messages.forEach((message) => {
+    assert.equal(classifyNotification(message), "non-comment", message);
+  });
+});
+
 test("classifies explicit non-comment notifications", () => {
   const messages = [
     "즐겨찾기한 스트리머가 방송을 시작했습니다",
     "캬루♥님의 신규 게시글 : 7월 4주차 일정표",
+    "물소보살님이 게시글을 UP 했어요 : 공컴퍼니 만세",
     "새로운 공지사항이 등록되었습니다",
     "구독 갱신 안내",
     "이벤트 당첨 안내",

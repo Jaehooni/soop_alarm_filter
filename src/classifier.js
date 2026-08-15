@@ -17,6 +17,14 @@
     /repl(?:y|ied)/i
   ];
 
+  // SOOP's fixed notification-type phrase comes before the user-authored
+  // title. Check it first so words such as "댓글" inside a post title do not
+  // turn a new-post or UP notification into a comment notification.
+  const EXPLICIT_NON_COMMENT_PATTERNS = [
+    /님의\s*신규\s*게시글\s*:/,
+    /님(?:이|께서)\s*게시글(?:을)?\s*up\s*했어요/i
+  ];
+
   const NON_COMMENT_PATTERNS = [
     /방송\s*(?:을\s*)?(?:시작|종료)/,
     /라이브\s*(?:가\s*)?(?:시작|종료)/,
@@ -50,6 +58,9 @@
     const text = normalizeText(value);
 
     if (!text) return "unknown";
+    if (EXPLICIT_NON_COMMENT_PATTERNS.some((pattern) => pattern.test(text))) {
+      return "non-comment";
+    }
     if (COMMENT_PATTERNS.some((pattern) => pattern.test(text))) return "comment";
     if (NON_COMMENT_PATTERNS.some((pattern) => pattern.test(text))) return "non-comment";
     return "unknown";

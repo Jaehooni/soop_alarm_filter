@@ -11,7 +11,7 @@ const manifest = JSON.parse(fs.readFileSync(path.join(root, "manifest.json"), "u
 test("uses Manifest V3 with no privileged extension permissions", () => {
   assert.equal(manifest.manifest_version, 3);
   assert.equal(manifest.name, "SOOP 댓글 알림 필터");
-  assert.equal(manifest.version, "1.0.4");
+  assert.equal(manifest.version, "1.0.5");
   assert.equal(manifest.permissions, undefined);
   assert.equal(manifest.host_permissions, undefined);
 });

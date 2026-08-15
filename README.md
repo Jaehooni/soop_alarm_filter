@@ -4,7 +4,7 @@ SOOP의 알림창에 **댓글만 / 전체** 필터를 추가하는 Chrome 확장
 
 ## 폴더 구성
 
-- `manifest.json`, `src/`, `icons/`: Chrome에 불러올 최신 확장 프로그램 (`1.0.4`)
+- `manifest.json`, `src/`, `icons/`: Chrome에 불러올 최신 확장 프로그램 (`1.0.5`)
 - `test/`: 최신 소스의 자동 테스트
 - `CONTEXT.md`: 실제 SOOP DOM과 구현 결정이 정리된 유지보수 문서
 - `soop-comment-filter.zip`: 최신 배포본
@@ -65,6 +65,11 @@ zip -r soop-comment-filter.zip manifest.json src icons README.md CONTEXT.md
 ```
 
 ## 변경 이력
+
+### 1.0.5 (2026-08-15)
+
+- `게시글을 UP 했어요` 알림을 `댓글만` 보기에서 숨기도록 분류 규칙을 복구했습니다.
+- 신규 게시글이나 UP 알림 제목에 `댓글`, `답글`이 포함돼도 댓글 알림으로 오분류되지 않도록 고정 알림 유형을 우선 판정합니다.
 
 ### 1.0.4 (2026-08-13)
 
